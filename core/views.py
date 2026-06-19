@@ -14,3 +14,6 @@ def family_shopping(request):
 
 def money_by_phone(request):
     return render(request=request, template_name='money-by-phone.html')
+
+def about_products(request):
+    return render(request=request, template_name='about-products.html')
