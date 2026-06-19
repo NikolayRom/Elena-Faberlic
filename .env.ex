@@ -3,3 +3,10 @@ DB_USER=user
 DB_PASSWORD=user_password
 DB_HOST=localhost
 DB_PORT=5432
+
+CATALOG_LINK=your_catalog_link
+REGISTER_LINK=your_register_link
+SITE_LINK=http://127.0.0.1:8000
+CONSULTANT_TELEGRAM_LINK=telegram_link
+CONSULTANT_WHATSAPP_LINK=whatsapp_link
+CONSULTANT_VIBER_LINK=viber_link

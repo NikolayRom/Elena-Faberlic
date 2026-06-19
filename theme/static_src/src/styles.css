@@ -8,3 +8,9 @@
   * the scope of this path.
   */
 @source "../../../**/*.{html,py,js}";
+
+@theme {
+  --color-fab-header: #ff3d71;
+  --color-fab-accent: #e20054;
+  --color-fab-accent-hover: #c20047;
+}
