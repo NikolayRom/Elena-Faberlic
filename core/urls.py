@@ -1,7 +1,9 @@
+from django.template.backends import django
 from django.urls import path
 from core import views
 from django.views.generic import RedirectView
-
+from django.conf import settings
+from django.conf.urls.static import  static
 urlpatterns = [
     path(route='', view=RedirectView.as_view(url='/home/', permanent=False)),
     path(route='home/', view=views.home, name='home'),
@@ -11,3 +13,6 @@ urlpatterns = [
     path(route='family-shopping', view=views.family_shopping, name='family-shopping'),
     path(route='about-products', view=views.about_products, name='about-products'),
 ]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

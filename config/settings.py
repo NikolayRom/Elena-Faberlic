@@ -8,6 +8,10 @@ load_dotenv()
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static')
+]
+
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
@@ -27,6 +31,8 @@ ALLOWED_HOSTS = [
 # Application definition
 
 INSTALLED_APPS = [
+    'jazzmin',
+
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -36,6 +42,7 @@ INSTALLED_APPS = [
     'tailwind',
     'django_htmx',
 
+    'django_summernote',
     'core.apps.CoreConfig',
     'theme.apps.ThemeConfig',
 ]
@@ -126,6 +133,11 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
@@ -160,3 +172,29 @@ LOGGING = {
         },
     },
 }
+
+JAZZMIN_SETTINGS = {
+    "site_title": "Faberlic Админ",
+    "site_header": "Faberlic Team",
+    "site_brand": "Управление сайтом",
+    "welcome_sign": "Добро пожаловать в панель управления",
+    "copyright": "Faberlic Team",
+
+    "icons": {
+        "auth": "fas fa-users-cog",
+        "auth.user": "fas fa-user",
+        "auth.Group": "fas fa-users",
+        "core.NewsItem": "fas fa-newspaper",
+        "core.ProductItem": "fas fa-box-open",
+    },
+    "show_ui_builder": False,
+}
+
+JAZZMIN_UI_TWEAKS = {
+    "theme": "lumen",
+    "navbar": "navbar-white navbar-light",
+    "sidebar": "sidebar-light-pink",
+    "accent": "accent-pink",
+}
+
+X_FRAME_OPTIONS = 'SAMEORIGIN'
