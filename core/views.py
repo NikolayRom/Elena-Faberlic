@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.core.paginator import Paginator
-from core.models import AboutProducts, News
+from core.models import AboutProducts, News, MoneyByPhone, WorkAsLeader, FamilyShopping
 from dotenv import load_dotenv
 import os
 
@@ -22,13 +22,25 @@ def news(request):
     return render(request=request,template_name="news.html", context=context)
 
 def work_as_leader(request):
-    return render(request=request, template_name='work-as-leader.html')
+    page_data = WorkAsLeader.objects.first()
+    context = {
+        'page_data': page_data,
+    }
+    return render(request=request, template_name='work-as-leader.html', context=context)
 
 def family_shopping(request):
-    return render(request=request, template_name='family-shopping.html')
+    page_data = FamilyShopping.objects.first()
+    context = {
+        'page_data': page_data,
+    }
+    return render(request=request, template_name='family-shopping.html', context=context)
 
 def money_by_phone(request):
-    return render(request=request, template_name='money-by-phone.html')
+    page_data = MoneyByPhone.objects.first()
+    context = {
+        'page_data': page_data,
+    }
+    return render(request=request, template_name='money-by-phone.html', context=context)
 
 def about_products(request):
     products_list = AboutProducts.objects.all()
