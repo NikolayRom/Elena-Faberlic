@@ -1,15 +1,49 @@
-{% extends "base.html" %}
+{% extends 'base.html' %}
 
-{% block title %}Работа лидером - Faberlic Team{% endblock %}
+{% block title %}{{ page_data.title }} - Faberlic Team{% endblock %}
 
 {% block content %}
-<div class="py-6">
-    <h1 class="text-3xl font-bold text-gray-900 mb-4">Добро пожаловать на наш сайт! (Работа лидером)</h1>
-    <p class="text-lg text-gray-600 mb-6">Это демонстрационная страница. Здесь мы проверяем, как работает наша верстка, адаптивность и стили.</p>
-    
-    <div class="bg-pink-50 border-l-4 border-fab-accent p-4 rounded-r-md">
-        <p class="text-sm text-fab-accent font-semibold">Важная ифнормация:</p>
-        <p class="text-sm text-gray-700 mt-1">Сейчас данная страница (Работа лидером) находится на этапе разработки. Контент и структура появятся позже, ждите обновлений!</p>
+<article class="bg-white rounded-3xl shadow-sm border border-gray-100 p-6 sm:p-8 lg:p-12 mb-8 relative">
+
+    <div class="absolute top-0 right-0 -mt-16 -mr-16 w-64 h-64 bg-pink-50 rounded-full blur-3xl opacity-60 pointer-events-none"></div>
+
+    <div class="flex flex-col lg:flex-row gap-10 lg:gap-16 items-start relative z-10">
+
+        <!-- Image -->
+        {% if page_data.image %}
+        <div class="w-full lg:w-5/12 shrink-0 lg:sticky lg:top-24">
+
+            <!-- Mobile: Header -->
+            <h1 class="block lg:hidden text-3xl font-extrabold text-gray-900 tracking-tight mb-6">{{ page_data.title }}</h1>
+
+            <div class="w-full bg-gray-50 rounded-2xl border border-gray-100 p-3 sm:p-5 shadow-inner">
+                <img src="{{ page_data.image.url }}"
+                     alt="{{ page_data.title }}"
+                     class="w-full h-auto max-h-[60vh] object-contain drop-shadow-md rounded-xl">
+            </div>
+        </div>
+        {% endif %}
+
+        <!-- Content -->
+        <div class="w-full {% if page_data.image %}lg:w-7/12{% endif %} flex flex-col">
+
+            <!-- Desktop: Header -->
+            <h1 class="hidden lg:block text-4xl font-extrabold text-gray-900 tracking-tight mb-6">
+                {{ page_data.title }}
+            </h1>
+
+            <div class="hidden lg:block w-20 h-1.5 bg-fab-accent rounded-full mb-10"></div>
+            <div class="block lg:hidden w-16 h-1 bg-fab-accent rounded-full mb-8 -mt-2"></div>
+
+            <!-- Description -->
+            <div class="prose prose-base sm:prose-lg max-w-none text-gray-700 leading-relaxed
+                        [&_a]:text-fab-accent [&_a]:underline [&_a]:font-semibold hover:[&_a]:text-fab-accent-hover
+                        [&_ul]:list-disc [&_ul]:pl-5 [&_ul_li]:marker:text-fab-accent
+                        [&_ol]:list-decimal [&_ol]:pl-5">
+                {{ page_data.description|safe }}
+            </div>
+
+        </div>
     </div>
-</div>
+</article>
 {% endblock %}
