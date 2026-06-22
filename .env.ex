@@ -1,3 +1,5 @@
+DJANGO_SECRET_KEY=your_secret_key
+
 DB_NAME=user_db
 DB_USER=user
 DB_PASSWORD=user_password
@@ -6,9 +8,15 @@ DB_PORT=5432
 
 CATALOG_LINK=your_catalog_link
 REGISTER_LINK=your_register_link
+GIFT_LINK=your_gift_link
 SITE_LINK=http://127.0.0.1:8000
+SITE_NAME=Faberlic Team
+SITE_TITLE_2=Official partner
+
 CONSULTANT_TELEGRAM_LINK=telegram_link
 CONSULTANT_WHATSAPP_LINK=whatsapp_link
 CONSULTANT_VIBER_LINK=viber_link
 
 PAGINATION_NUMBER=20
+LOAD_MORE_INITIALLY=30
+LOAD_MORE_EXTEND=20

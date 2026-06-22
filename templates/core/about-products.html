@@ -1,6 +1,6 @@
-{% extends 'base.html' %}
+{% extends 'core/base.html' %}
 
-{% block title %}О продукции - Faberlic Team{% endblock %}
+{% block title %}О продукции - {{ SITE_NAME }}{% endblock %}
 
 {% block content %}
 <div x-data="{ modalOpen: false, modalSrc: '' }" @keydown.escape.window="modalOpen = false">

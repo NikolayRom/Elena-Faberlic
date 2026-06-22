@@ -1,7 +1,13 @@
 from django.contrib import admin
 from django.utils.html import format_html
-from core.models import News, AboutProducts, MoneyByPhone, WorkAsLeader, FamilyShopping
+from core.models import News, AboutProducts, MoneyByPhone, WorkAsLeader, FamilyShopping, HomeDealOffer, HomeGiftsSection, HomeStarterSection
 from django_summernote.admin import SummernoteModelAdmin
+
+class SingletonModelAdmin(admin.ModelAdmin):
+    def has_add_permission(self, request):
+        if self.model.objects.exists():
+            return False
+        return super().has_add_permission(request)
 
 class BaseItemAdmin(SummernoteModelAdmin):
     list_display = ('title', 'image_preview', 'updated_at')
@@ -27,7 +33,7 @@ class BaseItemAdmin(SummernoteModelAdmin):
 
     image_preview_large.short_description = 'Предпросмотр фото'
 
-class BaseInfoAdmin(SummernoteModelAdmin):
+class BaseInfoAdmin(SummernoteModelAdmin, SingletonModelAdmin):
     list_display = ('title', 'updated_at')
     search_fields = ('title',)
     readonly_fields = ('image_preview_large',)
@@ -63,3 +69,23 @@ class WorkAsLeaderAdmin(BaseInfoAdmin):
 @admin.register(FamilyShopping)
 class FamilyShoppingAdmin(BaseInfoAdmin):
     pass
+
+@admin.register(HomeGiftsSection)
+class GiftsSectionAdmin(SingletonModelAdmin):
+    pass
+
+@admin.register(HomeStarterSection)
+class StarterSectionAdmin(SingletonModelAdmin):
+    pass
+
+@admin.register(HomeDealOffer)
+class DealOfferAdmin(admin.ModelAdmin):
+    list_display = ('id', 'image_preview', 'created_at')
+
+    def image_preview(self, obj):
+        if obj.image:
+            from django.utils.html import format_html
+            return format_html('<img src="{}" style="height: 50px; border-radius: 4px;" />', obj.image.url)
+        return ""
+
+    image_preview.short_description = 'Фото'

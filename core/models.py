@@ -147,3 +147,83 @@ class FamilyShopping(models.Model):
 
     def __str__(self):
         return self.title
+
+class HomeGiftsSection(models.Model):
+    image_1 = models.ImageField(
+        upload_to='home/gifts/',
+        verbose_name="Фото 1 (Беларусь)"
+    )
+    image_2 = models.ImageField(
+        upload_to='home/gifts/',
+        verbose_name="Фото 2 (Россия)"
+    )
+    image_3 = models.ImageField(
+        upload_to='home/gifts/',
+        verbose_name="Фото 3 (Казахстан)"
+    )
+    image_4 = models.ImageField(
+        upload_to='home/gifts/',
+        verbose_name="Фото 4 (Таджикистан)"
+    )
+    image_5 = models.ImageField(
+        upload_to='home/gifts/',
+        verbose_name="Фото 5 (Кыргызстан)"
+    )
+
+    class Meta:
+        verbose_name = "Главная: Подарки для новичков"
+        verbose_name_plural = "Главная: Подарки для новичков"
+
+    def __str__(self):
+        return "Настройки блока 'Подарки для новичков'"
+
+class HomeStarterSection(models.Model):
+    image_1 = models.ImageField(
+        upload_to='home/starter/',
+        verbose_name="Фото 1 (Беларусь)"
+    )
+    image_2 = models.ImageField(
+        upload_to='home/starter/',
+        verbose_name="Фото 2 (Россия)"
+    )
+    image_3 = models.ImageField(
+        upload_to='home/starter/',
+        verbose_name="Фото 3 (Казахстан)"
+    )
+    image_4 = models.ImageField(
+        upload_to='home/starter/',
+        verbose_name="Фото 4 (Таджикистан)"
+    )
+    image_5 = models.ImageField(
+        upload_to='home/starter/',
+        verbose_name="Фото 5 (Кыргызстан)"
+    )
+
+    class Meta:
+        verbose_name = "Главная: Стартовая программа"
+        verbose_name_plural = "Главная: Стартовая программа"
+
+    def __str__(self):
+        return "Настройки блока 'Стартовая программа'"
+
+class HomeDealOffer(models.Model):
+    image = models.ImageField(
+        upload_to='home/deals/',
+        verbose_name="Фото предложения"
+    )
+    created_at = models.DateTimeField(
+        auto_now_add=True,
+        verbose_name="Дата добавления"
+    )
+    updated_at = models.DateTimeField(
+        auto_now=True,
+        verbose_name='Дата изменения'
+    )
+
+    class Meta:
+        verbose_name = "Главная: Выгодные предложения"
+        verbose_name_plural = "Главная: Выгодные предложения"
+        ordering = ['-created_at']
+
+    def __str__(self):
+        return f"Предложение от {self.created_at.strftime('%d.%m.%Y')}"
