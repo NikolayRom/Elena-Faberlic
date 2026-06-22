@@ -17,7 +17,7 @@ STATICFILES_DIRS = [
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-77+f%uk0j=$k88sp90@r5uhc!pcf0*w-o(ant^$!l_2-vtz28&'
+SECRET_KEY = os.getenv('DJANGO_SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -175,10 +175,10 @@ LOGGING = {
 
 JAZZMIN_SETTINGS = {
     "site_title": "Faberlic Админ",
-    "site_header": "Faberlic Team",
+    "site_header": os.getenv('SITE_NAME'),
     "site_brand": "Управление сайтом",
     "welcome_sign": "Добро пожаловать в панель управления",
-    "copyright": "Faberlic Team",
+    "copyright": os.getenv('SITE_NAME'),
 
     "icons": {
         "auth": "fas fa-users-cog",
