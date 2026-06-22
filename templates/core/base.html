@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}Faberlic Partner{% endblock %}</title>
+    <title>{% block title %}{{ SITE_NAME }}{% endblock %}</title>
 
     {% tailwind_css %}
     <script src="https://unpkg.com/htmx.org@1.9.10" defer></script>
@@ -42,8 +42,8 @@
                 </div>
 
                 <div class="shrink-0 bg-fab-header px-4 pt-8 pb-6 text-white">
-                    <a href="/" class="block text-xl font-bold tracking-wider uppercase">Faberlic Team</a>
-                    <p class="mt-1 text-sm text-white/80">Official partner</p>
+                    <a href="/static" class="block text-xl font-bold tracking-wider uppercase">{{ SITE_NAME }}</a>
+                    <p class="mt-1 text-sm text-white/80">{{ SITE_TITLE_2 }}</p>
                 </div>
 
                 <div class="flex min-h-0 flex-1 flex-col justify-center overflow-y-auto px-4 pb-6 pt-4">
@@ -149,7 +149,7 @@
             </button>
 
             <div class="flex flex-1 justify-center lg:w-72 lg:flex-none lg:justify-start lg:px-6">
-                <a href="/" class="text-xl font-bold tracking-wider uppercase">Faberlic Team</a>
+                <a href="/static" class="text-xl font-bold tracking-wider uppercase">{{ SITE_NAME }}</a>
             </div>
 
             <nav class="hidden lg:flex lg:flex-1 lg:items-center lg:justify-end lg:gap-4 lg:pr-8">
