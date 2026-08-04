@@ -35,7 +35,7 @@ def home(request):
 
 def load_more_deals(request):
     offset = int(request.GET.get('offset', os.getenv('LOAD_MORE_INITIALLY'))) #type:ignore
-    limit = os.getenv('LOAD_MORE_EXTEND')
+    limit = int(os.getenv('LOAD_MORE_EXTEND'))
 
     deals = HomeDealOffer.objects.all()[offset:offset + limit]
     has_more = (offset + limit) < HomeDealOffer.objects.count()
