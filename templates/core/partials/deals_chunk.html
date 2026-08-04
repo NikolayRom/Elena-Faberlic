@@ -1,0 +1,29 @@
+{% for deal in deals %}
+    <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden flex flex-col">
+        <div class="w-full h-80 bg-gray-50 flex items-center justify-center p-4 relative group cursor-pointer overflow-hidden"
+             @click="modalSrc = '{{ deal.image.url }}'; modalOpen = true">
+            <img src="{{ deal.image.url }}" class="max-w-full max-h-full object-contain drop-shadow-sm transform-gpu transition-transform duration-700 ease-out group-hover:scale-[1.03]">
+        </div>
+        <div class="p-4">
+            <a href="{{ GIFT_LINK }}" target="_blank" class="block w-full text-center bg-fab-accent text-white font-bold py-3 rounded-xl hover:bg-fab-accent-hover transition-colors shadow-sm hover:shadow">
+                Получить подарок 🎁
+            </a>
+        </div>
+    </div>
+{% endfor %}
+
+{% if has_more %}
+    <div id="load-more-container" class="col-span-1 lg:col-span-2 flex justify-center mt-12">
+        <button hx-get="/load-more-deals/?offset={{ next_offset }}"
+                hx-target="#load-more-container"
+                hx-swap="outerHTML"
+                class="px-8 py-4 bg-black text-white font-bold rounded-xl border-2 border-black hover:bg-white hover:text-black transition-all duration-200 shadow-md flex items-center gap-3">
+            Показать еще
+
+            <svg class="htmx-indicator w-5 h-5 animate-spin text-current" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+            </svg>
+        </button>
+    </div>
+{% endif %}
