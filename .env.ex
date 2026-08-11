@@ -1,4 +1,5 @@
 DJANGO_SECRET_KEY=your_secret_key
+DJANGO_DEBUG=False
 
 DB_NAME=user_db
 DB_USER=user
