@@ -66,7 +66,25 @@
                         {% endif %}
 
                         <!-- Content -->
-                        <div class="w-full lg:w-7/12 flex flex-col justify-between" x-data="{ expanded: false, isOverflowing: false }" x-init="setTimeout(() => { isOverflowing = $refs.text.scrollHeight > $refs.text.clientHeight }, 150)">
+                        <div class="w-full lg:w-7/12 flex flex-col justify-between"
+                             x-data="{
+                                 expanded: false,
+                                 isOverflowing: false,
+                                 checkOverflow() {
+                                     if (this.$refs.text) {
+                                         this.isOverflowing = this.$refs.text.scrollHeight > (this.$refs.text.clientHeight + 2);
+                                     }
+                                 }
+                             }"
+                             x-init="
+                                 checkOverflow();
+                                 if (document.fonts) { document.fonts.ready.then(() => checkOverflow()); }
+                                 setTimeout(() => checkOverflow(), 300);
+                                 setTimeout(() => checkOverflow(), 800);
+                                 window.addEventListener('pageshow', () => checkOverflow());
+                             "
+                             @resize.window.debounce.150ms="checkOverflow()"
+                        >
 
                             <div class="flex-1 relative">
                                 <!-- Mobile: Header -->
