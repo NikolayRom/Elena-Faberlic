@@ -66,7 +66,7 @@
                         {% endif %}
 
                         <!-- Content -->
-                        <div class="w-full lg:w-7/12 flex flex-col justify-between" x-data="{ expanded: false, isOverflowing: false }" x-init="$nextTick(() => { isOverflowing = $refs.text.scrollHeight > $refs.text.clientHeight })">
+                        <div class="w-full lg:w-7/12 flex flex-col justify-between" x-data="{ expanded: false, isOverflowing: false }" x-init="setTimeout(() => { isOverflowing = $refs.text.scrollHeight > $refs.text.clientHeight }, 150)">
 
                             <div class="flex-1 relative">
                                 <!-- Mobile: Header -->
