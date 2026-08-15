@@ -44,6 +44,8 @@ INSTALLED_APPS = [
     'tailwind',
     'django_htmx',
 
+    'django.contrib.sitemaps',
+
     'django_summernote',
     'core.apps.CoreConfig',
     'theme.apps.ThemeConfig',
