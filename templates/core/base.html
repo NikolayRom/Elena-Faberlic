@@ -5,7 +5,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Title -->
     <title>{% block title %}{{ SITE_NAME }}{% endblock %}</title>
+    <!-- Meta tag: description -->
+    <meta name="description" content="{% block description %}Самые выгодные предложения Фаберлик для стран СНГ ! Скидка  от 20%, подарки новичкам, более 10 подарков в течение 5 каталогов и безумные акции каждый каталог со скидками до 80% !{% endblock %}">
+
+    <!-- Open Graph Tags -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Faberlic Sales">
+    <meta property="og:title" content="{% block og_title %}{{ SITE_NAME }}{% endblock %}">
+    <meta property="og:description" content="{% block og_description %}Самые выгодные предложения Фаберлик для стран СНГ ! Скидка  от 20%, подарки новичкам, более 10 подарков в течение 5 каталогов и безумные акции каждый каталог со скидками до 80% !{% endblock %}">
+
+    <!-- Open Graph Image -->
+    <meta property="og:image" content="{% block og_image %}{{ SITE_LINK }}{% static 'images/og-faberlic.png' %}{% endblock %}">
+    <meta property="og:url" content="{{ request.build_absolute_uri }}">
 
     <link rel="shortcut icon" href="{% static 'images/favicon.png' %}" type="image/x-icon">
     <link rel="icon" href="{% static 'images/favicon.png' %}" type="image/x-icon">
