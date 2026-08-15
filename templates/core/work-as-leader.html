@@ -1,8 +1,10 @@
 {% extends 'core/base.html' %}
 
 {% block title %}{{ page_data.title }} - {{ SITE_NAME }}{% endblock %}
-
 {% block description %}{{ page_data.content|striptags|truncatechars:150 }}{% endblock %}
+
+{% block og_title %}{{ page_data.title }} - {{ SITE_NAME }}{% endblock %}
+{% block og_description %}{{ page_data.content|striptags|truncatechars:150 }}{% endblock %}
 
 {% if page_data.image %}
     {% block og_image %}{{ SITE_LINK }}{{ page_data.image.url }}{% endblock %}

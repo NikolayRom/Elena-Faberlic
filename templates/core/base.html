@@ -14,8 +14,8 @@
     <!-- Open Graph Tags -->
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Faberlic Sales">
-    <meta property="og:title" content="{% block og_title %}{% block title %}{% endblock %}{% endblock %}">
-    <meta property="og:description" content="{% block og_description %}{% block description %}{% endblock %}{% endblock %}">
+    <meta property="og:title" content="{% block og_title %}{{ SITE_NAME }}{% endblock %}">
+    <meta property="og:description" content="{% block og_description %}Самые выгодные предложения Фаберлик для стран СНГ ! Скидка  от 20%, подарки новичкам, более 10 подарков в течение 5 каталогов и безумные акции каждый каталог со скидками до 80% !{% endblock %}">
 
     <!-- Open Graph Image -->
     <meta property="og:image" content="{% block og_image %}{{ SITE_LINK }}{% static 'images/og-faberlic.png' %}{% endblock %}">
