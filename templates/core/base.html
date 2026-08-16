@@ -60,7 +60,7 @@
                 </div>
 
                 <div class="shrink-0 bg-fab-header px-4 pt-8 pb-6 text-white">
-                    <a href="/static" class="block text-xl font-bold tracking-wider uppercase">{{ SITE_NAME }}</a>
+                    <a href="{% url 'home' %}" class="block text-xl font-bold tracking-wider uppercase">{{ SITE_NAME }}</a>
                     <p class="mt-1 text-sm text-white/80">{{ SITE_TITLE_2 }}</p>
                 </div>
 
@@ -74,7 +74,7 @@
                         </div>
 
                         <div class="space-y-1">
-                            <a href="{{ SITE_LINK }}/home" class="block py-2.5 text-base font-medium text-gray-900 hover:text-fab-accent">Главная</a>
+                            <a href="{{ SITE_LINK }}/" class="block py-2.5 text-base font-medium text-gray-900 hover:text-fab-accent">Главная</a>
                             <a href="{{ SITE_LINK }}/news" class="block py-2.5 text-base font-medium text-gray-900 hover:text-fab-accent">Новости</a>
                             <a href="{{ SITE_LINK }}/about-products" class="block py-2.5 text-base font-medium text-gray-900 hover:text-fab-accent">О продукции</a>
                         </div>
@@ -118,7 +118,7 @@
     <div class="hidden lg:flex lg:w-72 lg:flex-shrink-0 lg:flex-col lg:border-r lg:border-gray-200 lg:bg-gray-50 lg:pt-16">
         <div class="flex min-h-0 flex-1 flex-col justify-center overflow-y-auto px-5 py-10">
             <nav class="space-y-4">
-                <a href="{{ SITE_LINK }}/home" class="block rounded-lg px-3 py-3 text-center text-base lg:text-lg font-semibold text-gray-900 hover:bg-gray-100 hover:text-fab-accent transition-all duration-200">Главная</a>
+                <a href="{{ SITE_LINK }}/" class="block rounded-lg px-3 py-3 text-center text-base lg:text-lg font-semibold text-gray-900 hover:bg-gray-100 hover:text-fab-accent transition-all duration-200">Главная</a>
                 <a href="{{ SITE_LINK }}/news" class="block rounded-lg px-3 py-3 text-center text-base lg:text-lg font-semibold text-gray-900 hover:bg-gray-100 hover:text-fab-accent transition-all duration-200">Новости</a>
                 <a href="{{ SITE_LINK }}/about-products" class="block rounded-lg px-3 py-3 text-center text-base lg:text-lg font-semibold text-gray-900 hover:bg-gray-100 hover:text-fab-accent transition-all duration-200">О продукции</a>
 
@@ -167,7 +167,7 @@
             </button>
 
             <div class="flex flex-1 justify-center lg:w-72 lg:flex-none lg:justify-start lg:px-6">
-                <a href="/static" class="text-xl font-bold tracking-wider uppercase">{{ SITE_NAME }}</a>
+                <a href="{% url 'home' %}" class="text-xl font-bold tracking-wider uppercase">{{ SITE_NAME }}</a>
             </div>
 
             <nav class="hidden lg:flex lg:flex-1 lg:items-center lg:justify-end lg:gap-4 lg:pr-8">
