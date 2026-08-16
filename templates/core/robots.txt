@@ -1,0 +1,6 @@
+User-agent: *
+Disallow: /admin/
+Disallow: /summernote/
+Allow: /
+
+Sitemap: https://faberlic-sales.com/sitemap.xml

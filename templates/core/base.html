@@ -5,7 +5,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Title -->
     <title>{% block title %}{{ SITE_NAME }}{% endblock %}</title>
+    <!-- Meta tag: description -->
+    <meta name="description" content="{% block description %}Самые выгодные предложения Фаберлик для стран СНГ ! Скидка  от 20%, подарки новичкам, более 10 подарков в течение 5 каталогов и безумные акции каждый каталог со скидками до 80% !{% endblock %}">
+
+    <!-- Open Graph Tags -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Faberlic Sales">
+    <meta property="og:title" content="{% block og_title %}{{ SITE_NAME }}{% endblock %}">
+    <meta property="og:description" content="{% block og_description %}Самые выгодные предложения Фаберлик для стран СНГ ! Скидка  от 20%, подарки новичкам, более 10 подарков в течение 5 каталогов и безумные акции каждый каталог со скидками до 80% !{% endblock %}">
+
+    <!-- Open Graph Image -->
+    <meta property="og:image" content="{% block og_image %}{{ SITE_LINK }}{% static 'images/og-faberlic.png' %}{% endblock %}">
+    <meta property="og:url" content="{{ request.build_absolute_uri }}">
+
+    <!-- Yandex.Webmaster -->
+    <meta name="yandex-verification" content="161c67c37c04192c" />
 
     <link rel="shortcut icon" href="{% static 'images/favicon.png' %}" type="image/x-icon">
     <link rel="icon" href="{% static 'images/favicon.png' %}" type="image/x-icon">
@@ -46,7 +63,7 @@
                 </div>
 
                 <div class="shrink-0 bg-fab-header px-4 pt-8 pb-6 text-white">
-                    <a href="/static" class="block text-xl font-bold tracking-wider uppercase">{{ SITE_NAME }}</a>
+                    <a href="{% url 'home' %}" class="block text-xl font-bold tracking-wider uppercase">{{ SITE_NAME }}</a>
                     <p class="mt-1 text-sm text-white/80">{{ SITE_TITLE_2 }}</p>
                 </div>
 
@@ -60,7 +77,7 @@
                         </div>
 
                         <div class="space-y-1">
-                            <a href="{{ SITE_LINK }}/home" class="block py-2.5 text-base font-medium text-gray-900 hover:text-fab-accent">Главная</a>
+                            <a href="{{ SITE_LINK }}/" class="block py-2.5 text-base font-medium text-gray-900 hover:text-fab-accent">Главная</a>
                             <a href="{{ SITE_LINK }}/news" class="block py-2.5 text-base font-medium text-gray-900 hover:text-fab-accent">Новости</a>
                             <a href="{{ SITE_LINK }}/about-products" class="block py-2.5 text-base font-medium text-gray-900 hover:text-fab-accent">О продукции</a>
                         </div>
@@ -104,7 +121,7 @@
     <div class="hidden lg:flex lg:w-72 lg:flex-shrink-0 lg:flex-col lg:border-r lg:border-gray-200 lg:bg-gray-50 lg:pt-16">
         <div class="flex min-h-0 flex-1 flex-col justify-center overflow-y-auto px-5 py-10">
             <nav class="space-y-4">
-                <a href="{{ SITE_LINK }}/home" class="block rounded-lg px-3 py-3 text-center text-base lg:text-lg font-semibold text-gray-900 hover:bg-gray-100 hover:text-fab-accent transition-all duration-200">Главная</a>
+                <a href="{{ SITE_LINK }}/" class="block rounded-lg px-3 py-3 text-center text-base lg:text-lg font-semibold text-gray-900 hover:bg-gray-100 hover:text-fab-accent transition-all duration-200">Главная</a>
                 <a href="{{ SITE_LINK }}/news" class="block rounded-lg px-3 py-3 text-center text-base lg:text-lg font-semibold text-gray-900 hover:bg-gray-100 hover:text-fab-accent transition-all duration-200">Новости</a>
                 <a href="{{ SITE_LINK }}/about-products" class="block rounded-lg px-3 py-3 text-center text-base lg:text-lg font-semibold text-gray-900 hover:bg-gray-100 hover:text-fab-accent transition-all duration-200">О продукции</a>
 
@@ -153,7 +170,7 @@
             </button>
 
             <div class="flex flex-1 justify-center lg:w-72 lg:flex-none lg:justify-start lg:px-6">
-                <a href="/static" class="text-xl font-bold tracking-wider uppercase">{{ SITE_NAME }}</a>
+                <a href="{% url 'home' %}" class="text-xl font-bold tracking-wider uppercase">{{ SITE_NAME }}</a>
             </div>
 
             <nav class="hidden lg:flex lg:flex-1 lg:items-center lg:justify-end lg:gap-4 lg:pr-8">
@@ -174,5 +191,20 @@
             </div>
         </main>
     </div>
+
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript">
+        (function(m,e,t,r,i,k,a){
+            m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+            m[i].l=1*new Date();
+            for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+            k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+        })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=111659659', 'ym');
+
+        ym(111659659, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
+    </script>
+    <noscript><div><img src="https://mc.yandex.ru/watch/111659659" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+    <!-- /Yandex.Metrika counter -->
+
 </body>
 </html>

@@ -1,6 +1,14 @@
 {% extends 'core/base.html' %}
 
 {% block title %}О продукции - {{ SITE_NAME }}{% endblock %}
+{% block description %}{{ page_obj.0.description|striptags|truncatechars:150 }}{% endblock %}
+
+{% block og_title %}О продукции - {{ SITE_NAME }}{% endblock %}
+{% block og_description %}{{ page_obj.0.description|striptags|truncatechars:150 }}{% endblock %}
+
+{% if page_obj.0.image %}
+    {% block og_image %}{{ SITE_LINK }}{{ page_obj.0.image.url }}{% endblock %}
+{% endif %}
 
 {% block content %}
 <div x-data="{ modalOpen: false, modalSrc: '' }" @keydown.escape.window="modalOpen = false">
