@@ -1,10 +1,10 @@
 {% extends 'core/base.html' %}
 
 {% block title %}Новости - {{ SITE_NAME }}{% endblock %}
-{% block description %}{{ page_data.content|striptags|truncatechars:150 }}{% endblock %}
+{% block description %}{{ page_obj.0.description|striptags|truncatechars:150 }}{% endblock %}
 
 {% block og_title %}Новости - {{ SITE_NAME }}{% endblock %}
-{% block og_description %}{{ page_data.content|striptags|truncatechars:150 }}{% endblock %}
+{% block og_description %}{{ page_obj.0.description|striptags|truncatechars:150 }}{% endblock %}
 
 {% if page_obj.0.image %}
     {% block og_image %}{{ SITE_LINK }}{{ page_obj.0.image.url }}{% endblock %}
